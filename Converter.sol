@@ -15,9 +15,9 @@ contract Converter is StandardToken {
         _//;
     }
 
-    function Converter(string _name, uint8 _decimals, string _symbol, string _version) {
+    function Converter(string _name, string _symbol, string _version) {
         name = _name;
-        if(_decimals == 0) decimals = 18; else {decimals = _decimals;}
+        decimals = 18;
         symbol= _symbol;
         version = _version;
     }
@@ -41,7 +41,7 @@ contract Converter is StandardToken {
     function convertTokenToEther(uint amount) hasBalance(amount) returns (bool) {
         balances[msg.sender] -= amount;
         if (!msg.sender.send(amount)) throw;
+        totalSupply -= amount;
         EtherRedeemed(msg.sender, amount);
     }
-
 }
