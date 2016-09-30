@@ -1,6 +1,6 @@
 import "StandardToken.sol";
 
-contract Converter is StandardToken {
+contract ERC20EtherToken is StandardToken {
 
     string public name;
     uint8 public decimals;
@@ -20,7 +20,7 @@ contract Converter is StandardToken {
     /// @param _name (string) name of the token
     /// @param _symbol (string) symbol of the token
     /// @param _version (string) version of the token
-    function Converter(string _name, string _symbol, string _version) {
+    function ERC20EtherToken(string _name, string _symbol, string _version) {
         name = _name;
         decimals = 18;
         symbol= _symbol;
@@ -37,17 +37,10 @@ contract Converter is StandardToken {
         TokensCreated(msg.sender, amount);
     }
 
-    /// @notice Get the balance of the contract in ether
-    /// @dev Get the balance of the contract in ether
-    /// @return balance (uint) the balance of the contract in ether
-    function getEtherBalance() constant returns (uint balance) {
-        balance = this.balance * 1 ether;
-    }
-
     /// @notice Get the total amount of tokens issued
     /// @dev Total amount of tokens issued
     /// @return balance (uint) the amount of tokens issued
-    function getTokenIssued() constant returns (uint balance) {
+    function amountOfTokensIssued() constant returns (uint balance) {
         balance = totalSupply * 1 ether;
     }
 
