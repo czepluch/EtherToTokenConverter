@@ -41,7 +41,7 @@ contract ERC20EtherToken is StandardToken {
     /// @dev Total amount of tokens issued
     /// @return balance (uint) the amount of tokens issued
     function amountOfTokensIssued() constant returns (uint balance) {
-        balance = totalSupply * 1 ether;
+        balance = totalSupply;
     }
 
     /// @notice Redeem tokens for ether
