@@ -55,4 +55,14 @@ contract ERC20EtherToken is StandardToken {
         EtherRedeemed(msg.sender, amount);
         return true;
     }
+
+    // only for testing
+    function contractBalance() constant returns (uint _balance) {
+        _balance = this.balance;
+    }
+
+    // only for testing
+    function getBalance() constant returns (uint _balance) {
+        _balance = msg.sender.balance;
+    }
 }
